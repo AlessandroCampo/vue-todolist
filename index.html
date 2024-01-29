@@ -10,10 +10,11 @@
 
 <body class="bg-[#333]">
     <div id="app">
-        <div class="container mt-12 w-1/2 mx-auto p-6 ">
-            <div class="list text-sm text-white flex justify-start px-5 items-start py-16 relative flex-col">
+        <div class="container mt-12 w-2/3 mx-auto p-6 ">
+            <div class="list text-sm text-white flex justify-start px-8 items-start py-16 relative flex-col">
+                <h1 class="absolute left-1/2 translate-x-[-50%] top-4 text-2xl"> MY TO-DO LIST</h1>
                 <p v-if="tasks.length === 0"> Giornata libera!</p>
-                <ol class="w-fit list-decimal mx-2 flex flex-col gap-2 mb-2" v-else>
+                <ol class="w-fit list-decimal mx-2 flex flex-col gap-2 mb-2 mt-[-10px]" v-else>
                     <li v-for="(task, index) in tasks" @click="deleteLi(index, task, this)"
                         :class="task.done === true?`line-through`: `` ">
                         {{task.text}}

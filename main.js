@@ -1,6 +1,7 @@
 const { createApp } = Vue
 
 
+
 createApp({
     data() {
         return {
@@ -37,6 +38,7 @@ createApp({
                 if (!this.writing) {
                     board.style.cursor = "url('./chulk-cursor.png'), auto";
                     this.writing = true
+                    if (this.cancelling) this.cancelling = false
                 } else {
                     board.style.cursor = "auto";
                     this.writing = false
@@ -55,7 +57,9 @@ createApp({
         },
         addTask() {
             let board = document.querySelector(".list");
-            this.tasks.push(this.newTask)
+            let newTaskObj = Object.assign({}, this.newTask);
+            this.tasks.push(newTaskObj)
+            this.newTask.text = ""
             this.writing = false
             board.style.cursor = "auto";
         }
