@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+
+.list {
+    background-image: url(blackboard.png);
+    height: 300px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: -10px;
+    font-family: "Fredericka the Great", serif;
+    font-weight: 400;
+    font-style: normal;
+    ;
+}
+
+input:focus {
+    outline: none;
+    border-color: transparent;
+    box-shadow: none;
+}

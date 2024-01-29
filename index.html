@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body class="bg-[#333]">
+    <div id="app">
+        <div class="container mt-12 w-1/2 mx-auto p-6 ">
+            <div class="list text-sm text-white flex justify-start px-5 items-start py-16 relative flex-col">
+                <p v-if="tasks.length === 0"> Giornata libera!</p>
+                <ol class="w-fit list-decimal mx-2 flex flex-col gap-2 mb-2" v-else>
+                    <li v-for="(task, index) in tasks" @click="deleteLi(index, task, this)"
+                        :class="task.done === true?`line-through`: `` ">
+                        {{task.text}}
+                    </li>
+                </ol>
+                <input type="text" name="" id="" placeholder="Aggiungi una task..."
+                    class="px-2 bg-transparent focus:border-transparent" :class="writing? ``: `hidden`"
+                    v-model="newTask.text" @keyup.enter="addTask">
+                <img src="sponge.png" alt="" class="w-[80px] absolute bottom-[60px] right-[10px] sponge"
+                    @click="changeCursor">
+                <img src="chulk.png" alt="" class="w-[40px] absolute bottom-[65px] right-[90px] chulk"
+                    @click="changeCursor">
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
